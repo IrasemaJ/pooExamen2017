@@ -17,7 +17,7 @@ public class Cuenta {
     private Usuarios b;
 
     Cuenta(int numCuenta, int fechaApertura, int saldo) {
-        this.numCuenta = numCuenta;
+        //this.numCuenta = numCuenta;
         this.fechaApertura = fechaApertura;
         this.saldo = saldo;
     }
@@ -49,10 +49,13 @@ public class Cuenta {
     
     public static void main(String[] args) {
         
-        Usuarios Cliente1 = new Usuarios("Alan", "Naucalpan", 55123426, 51111111);
-        Usuarios Cliente2 = new Usuarios("Lilian", "Naucalpan", 55555555, 12222222);
+        Usuarios cliente1 = new Usuarios("Alan", "Naucalpan", 55123426, 51111111);
+        Usuarios cliente2 = new Usuarios("Lilian", "Naucalpan", 55555555, 12222222);
+        
+        
         
         BancoRepCocos banco = new BancoRepCocos(1000000);
+        //Banco saldo = new Banco(1000000);
     }
     
     

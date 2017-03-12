@@ -59,8 +59,8 @@ public class Usuarios {
     
     public static void main(String[] args) {
         
-        Cuenta Cliente1 = new Cuenta(123, 10022017, 1000000);
-        Cuenta Cliente2 = new Cuenta(345, 10032017, 1000000);
+        Cuenta Cliente1 = new Cuenta(1, 10022017, 1000000);
+        Cuenta Cliente2 = new Cuenta(2, 10032017, 1000000);
     }
     
     
