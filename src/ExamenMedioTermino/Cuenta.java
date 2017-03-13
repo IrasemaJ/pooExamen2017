@@ -14,12 +14,12 @@ public class Cuenta {
     private int numCuenta;
     private int fechaApertura;
     private int saldo;
-    private Usuarios b;
+    
 
     Cuenta(int numCuenta, int fechaApertura, int saldo) {
         //this.numCuenta = numCuenta;
-        this.fechaApertura = fechaApertura;
-        this.saldo = saldo;
+        //this.fechaApertura = fechaApertura;
+        //this.saldo = saldo;
     }
 
     public void setNumCuenta(int numCuenta) {
@@ -39,11 +39,11 @@ public class Cuenta {
         return numCuenta;
     }
 
-    public double getFechaApertura() {
+    public int getFechaApertura() {
         return fechaApertura;
     }
 
-    public double getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
     
