@@ -13,20 +13,20 @@ public class Banco {
     
     private Cuenta [] arrayCliente1;
     private Cuenta [] arrayCliente2;
-    private Cuenta [] arrayFecha1;
-    private Cuenta [] arrayFecha2;
+    //private Cuenta [] arrayFecha1;
+    //private Cuenta [] arrayFecha2;
     
     private int numSaldo1;
     private int numSaldo2;
-    private int fecha1; //cliente 1
-    private int fecha2; //cliente 2
+    //private int fecha1; //cliente 1
+    //private int fecha2; //cliente 2
     private Cuenta numCuenta;
     Cuenta temp1;
-    Cuenta fechaA;
+    //Cuenta fechaA;
     Cuenta temp2;
-    Cuenta fechaB;
-    private int tempRetiro1;
-    private int tempRetiro2;
+    //Cuenta fechaB;
+    //private int tempRetiro1;
+    //private int tempRetiro2;
     private int cont1;
     private int cont2;
 
@@ -36,21 +36,21 @@ public class Banco {
         
         arrayCliente1 = new Cuenta[saldoMax];
         arrayCliente2 = new Cuenta[saldoMax];
-        arrayFecha1 = new Cuenta[fechaInicial];
-        arrayFecha2 = new Cuenta[fechaInicial];
+        //arrayFecha1 = new Cuenta[fechaInicial];
+        //arrayFecha2 = new Cuenta[fechaInicial];
         
         temp1 = new Cuenta(numCuenta, 0, 0);
-        fechaA = new Cuenta(numCuenta,0,0);
+        //fechaA = new Cuenta(numCuenta,0,0);
         temp2 = new Cuenta(numCuenta, 0, 0);
-        fechaB = new Cuenta(numCuenta,0,0);
+        //fechaB = new Cuenta(numCuenta,0,0);
         
         
         numSaldo1 = 0;
         numSaldo2 = 0;
-        tempRetiro1 = numSaldo1;
-        tempRetiro2 = numSaldo2;
-        fecha1 =0;
-        fecha2 =0;
+        //tempRetiro1 = numSaldo1;
+        //tempRetiro2 = numSaldo2;
+        //fecha1 =0;
+        //fecha2 =0;
         cont1 = 0;
         cont2 = 0;
         
@@ -63,7 +63,7 @@ public class Banco {
         
         if ((cont1 == 0) && (cont2 == 0)) {
             Cuenta temp2 = new Cuenta(numCuenta, 0, 0);
-            Cuenta fechaB = new Cuenta(numCuenta,0,0);
+            //Cuenta fechaB = new Cuenta(numCuenta,0,0);
         }
         if (numCuenta == 1) {
             if (deposito < 0) {
@@ -72,13 +72,14 @@ public class Banco {
             else{
                 
                 numSaldo1 = numSaldo1 + deposito;
-                fecha1 = fecha1 + fecha;
+                temp1.setNumCuenta(numCuenta);
                 temp1.setSaldo(deposito);
+                temp1.setFechaApertura(fecha);
                 arrayCliente1[cont1] = temp1;
                 
-                fechaA.setFechaApertura(fecha);
-                arrayFecha1[cont1] = fechaA;
-                ++cont1;
+                //fechaA.setFechaApertura(fecha);
+                //arrayFecha1[cont1] = fechaA;
+                cont1++;
             }
             
         }
@@ -90,37 +91,38 @@ public class Banco {
                 //Cuenta temp2 = new Cuenta(numCuenta, 0, 0);
                 //Cuenta fechaB = new Cuenta(numCuenta,0,0);
                 numSaldo2 = numSaldo2 + deposito;
-                fecha2 = fecha2 + fecha;
+                temp2.setNumCuenta(numCuenta);
                 temp2.setSaldo(deposito);
+                temp2.setFechaApertura(fecha);
                 arrayCliente2[cont2] = temp2;
                 
-                fechaB.setFechaApertura(fecha);
-                arrayFecha2[cont2] = fechaB;
-                ++cont2;
+                //fechaB.setFechaApertura(fecha);
+                //arrayFecha2[cont2] = fechaB;
+                cont2++;
             }
         }
         
     }
     
-    public void imprimirDeposito(int numCuenta){ //revisar 
+    public void imprimirDeposito(int numCuenta){ 
         
         //temp2 = new Cuenta(numCuenta, 0, 0);
         //fechaB = new Cuenta(numCuenta,0,0);
         
         if (numCuenta == 1) {
-            for (int i = cont1; i > (cont1 -10); i--) {
-                //arrayCliente1[i] = temp1;
+            for (int i = (cont1-1); i > (cont1 -10); i--) {
+                
                 //arrayFecha1[i] = fechaA;
-                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  temp1.getSaldo() + " en la fecha: " + fechaA.getFechaApertura());
+                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  arrayCliente1[i].getSaldo() + " en la fecha: " + arrayCliente1[i].getFechaApertura());
             }
         }
         if (numCuenta == 2) {
-            for (int i = cont2; i > (cont2 -10); i--) {
-                //arrayCliente2[i];
+            for (int i = (cont2-1); i > (cont2 -10); i--) {
+                
                 //arrayFecha2[i] = fechaB; 
                 //arrayCliente2[i].getSaldo()
                 //System.out.println(arrayCliente2[i].getSaldo());
-                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  temp2.getSaldo() + " en la fecha: " + fechaB.getFechaApertura());
+                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  arrayCliente2[i].getSaldo() + " en la fecha: " + arrayCliente2[i].getFechaApertura() );
             }
         }
     }
@@ -135,11 +137,10 @@ public class Banco {
                 //temp1 = new Cuenta(numCuenta, 0, 0); //cuenta temp1
                 //fechaA = new Cuenta(numCuenta,0,0); // cuenta fechaA
                 numSaldo1 = numSaldo1 - retiro;
+                temp1.setNumCuenta(numCuenta);
                 temp1.setSaldo(retiro);
-                arrayCliente1[cont1] = temp1;
-                fecha1 = fecha1 + fecha;
-                fechaA.setFechaApertura(fecha);
-                arrayFecha1[cont1] = fechaA;
+                temp1.setFechaApertura(fecha);
+                arrayCliente1[cont1-1] = temp1;
                 cont1++;
             }
             
@@ -152,11 +153,10 @@ public class Banco {
                 //temp2 = new Cuenta(numCuenta, 0, 0);
                 //fechaB = new Cuenta(numCuenta,0,0);
                 numSaldo2 = numSaldo2 - retiro;
-                fecha2 = fecha2 + fecha;
+                temp2.setNumCuenta(numCuenta);
                 temp2.setSaldo(retiro);
-                arrayCliente2[cont2] = temp2;
-                fechaB.setFechaApertura(fecha);
-                arrayFecha1[cont2] = fechaB;
+                temp2.setFechaApertura(fecha);
+                arrayCliente2[cont2-1] = temp2;
                 cont2++;
             }
         }
@@ -170,14 +170,14 @@ public class Banco {
             for (int i = cont1; i > (cont1 -10); i--) {
                 //arrayCliente1[i] = temp1;
                 //arrayFecha1[i] = fechaA;
-                System.out.println("Retiro num: " + i + " de la cuenta " + numCuenta + " es de: " +  temp1.getSaldo() + " en la fecha: " + fechaA.getFechaApertura());
+                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  arrayCliente1[i].getSaldo() + " en la fecha: " + arrayCliente1[i].getFechaApertura());
             }
         }
         if (numCuenta == 2) {
-            for (int i = cont2; i > (cont2 -10); i--) {
+            for (int i = (cont2-1); i > (cont2 -10); i--) {
                 //arrayCliente2[i] = temp2;
                //7arrayFecha2[i] = fechaB; 
-                System.out.println("Retiro num: " + i + " de la cuenta " + numCuenta + " es de: " +  temp2.getSaldo() + " en la fecha: " + fechaB.getFechaApertura());
+                System.out.println("Deposito num: " + i + " de la cuenta " + numCuenta + " es de: " +  arrayCliente2[i].getSaldo() + " en la fecha: " + arrayCliente2[i].getFechaApertura() );
             }
         }
     }
@@ -192,17 +192,9 @@ public class Banco {
     
     public static void main(String[] args) {
          Banco a = new Banco();
-         a.inciar(2, 10,12);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
-         a.deposito(2, 100, 1217);
+         a.inciar(2, 20,12);
+         a.deposito(2, 10, 1217);
+         a.deposito(2, 10, 1217);
          a.imprimirSaldo();
          a.imprimirDeposito(2);
          
