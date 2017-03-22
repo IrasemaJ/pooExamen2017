@@ -39,7 +39,7 @@ public class BancoRepCocos {
         else{
             
             numSaldo = numSaldo + saldo;
-            arraysSaldo[cont].setSaldo(numSaldo); 
+            //arraysSaldo[cont].setSaldo(numSaldo); 
             this.fecha = this.fecha + fecha;
             arraysfecha[cont].setSaldo(fecha);
             cont++;
@@ -62,7 +62,7 @@ public class BancoRepCocos {
             if (retiro < numSaldo) {
             
                 tempRetiro = tempRetiro - retiro;
-                arraysSaldo[cont].setSaldo(tempRetiro); 
+                //arraysSaldo[cont].setSaldo(tempRetiro); 
                 this.fecha = this.fecha + fecha;
                 arraysfecha[cont].setSaldo(fecha);
                 cont++;
