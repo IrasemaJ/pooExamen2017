@@ -117,7 +117,8 @@ public class Banco {
             }
         }
         if (numCuenta == 2) {
-            for (int i = (cont2-1); i > (cont2 -10); i--) {
+            //if para preguntar cuando 
+            for (int i = (cont2-1); i > (cont2 -3); i--) {
                 
                 //arrayFecha2[i] = fechaB; 
                 //arrayCliente2[i].getSaldo()
